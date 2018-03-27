@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mood</groupId>
-	<artifactId>mood-node</artifactId>
+	<artifactId>JavaUtils</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>SpringBootDemo</name>
+	<name>JavaUtils</name>
 	<description>Demo project for Spring Boot</description>
 
 	<modules>

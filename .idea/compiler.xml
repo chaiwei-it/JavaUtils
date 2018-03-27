@@ -13,12 +13,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="JavaUtils" target="1.8" />
       <module name="mood-api" target="1.8" />
       <module name="mood-common" target="1.8" />
       <module name="mood-core" target="1.8" />
-      <module name="mood-node" target="1.8" />
       <module name="mood-rest" target="1.8" />
-      <module name="SpringBoot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
