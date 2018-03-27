@@ -1,0 +1,4 @@
+com\mood\entity\base\BaseEntity.class
+com\mood\entity\app\App.class
+com\mood\entity\user\User.class
+com\mood\entity\user\OauthContants.class

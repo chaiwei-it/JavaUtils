@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot.iml" filepath="$PROJECT_DIR$/SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mood-api/mood-api.iml" filepath="$PROJECT_DIR$/mood-api/mood-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mood-common/mood-common.iml" filepath="$PROJECT_DIR$/mood-common/mood-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mood-core/mood-core.iml" filepath="$PROJECT_DIR$/mood-core/mood-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mood-rest/mood-rest.iml" filepath="$PROJECT_DIR$/mood-rest/mood-rest.iml" />
+    </modules>
+  </component>
+</project>
