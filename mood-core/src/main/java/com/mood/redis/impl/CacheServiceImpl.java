@@ -1,6 +1,7 @@
 package com.mood.redis.impl;
 
 import com.mood.redis.CacheService;
+import com.mood.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -22,6 +23,38 @@ public class CacheServiceImpl implements CacheService<String, String> {
 			public String doInRedis(RedisConnection connection) throws DataAccessException {
 				@SuppressWarnings("unchecked")
                 Jackson2JsonRedisSerializer<String> jackson2JsonRedisSerializer = (Jackson2JsonRedisSerializer<String>) simpleRedisTemplate
+						.getValueSerializer();
+				return jackson2JsonRedisSerializer.deserialize(connection.get(simpleRedisTemplate.getStringSerializer().serialize(key)));
+			}
+		});
+		return value;
+	}
+
+	@Override
+	public Integer getInteger(String key) {
+		String value = simpleRedisTemplate.execute(new RedisCallback<String>() {
+			@Override
+			public String doInRedis(RedisConnection connection) throws DataAccessException {
+				@SuppressWarnings("unchecked")
+				Jackson2JsonRedisSerializer<String> jackson2JsonRedisSerializer = (Jackson2JsonRedisSerializer<String>) simpleRedisTemplate
+						.getValueSerializer();
+				return jackson2JsonRedisSerializer.deserialize(connection.get(simpleRedisTemplate.getStringSerializer().serialize(key)));
+			}
+		});
+		if(value == null || "".equals(value) || !StringUtil.isInteger(value)){
+			return 0;
+		}else{
+			return new Integer(value);
+		}
+	}
+
+	@Override
+	public String getString(String key) {
+		String value = simpleRedisTemplate.execute(new RedisCallback<String>() {
+			@Override
+			public String doInRedis(RedisConnection connection) throws DataAccessException {
+				@SuppressWarnings("unchecked")
+				Jackson2JsonRedisSerializer<String> jackson2JsonRedisSerializer = (Jackson2JsonRedisSerializer<String>) simpleRedisTemplate
 						.getValueSerializer();
 				return jackson2JsonRedisSerializer.deserialize(connection.get(simpleRedisTemplate.getStringSerializer().serialize(key)));
 			}

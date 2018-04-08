@@ -28,8 +28,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int insert(User user) {
         user.setId(IdGen.uuid());
+        user.setCreatePerson(user.getId());
         user.setCreateTime(System.currentTimeMillis());
+        user.setUpdatePerson(user.getId());
         user.setUpdateTime(System.currentTimeMillis());
+        user.setDelStatus(1);
         return userDao.insert(user);
     }
 
@@ -63,7 +66,7 @@ public class UserServiceImpl implements UserService {
         JSONObject param = new JSONObject();
         param.put("username", username);
         List<User> userList = userDao.selectAll(param);
-        if(userList.size() == 1){
+        if(userList.size() > 0){
             return userList.get(0);
         }
         return null;

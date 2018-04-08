@@ -50,9 +50,9 @@ public class UserDaoImpl implements UserDao {
         Example.Criteria criteria = example.createCriteria();
         if (param != null) {
             //拼接条件
-            Object userName = param.get("userName");
-            if (userName != null) {
-                criteria.andEqualTo("userName", userName.toString());
+            Object username = param.get("username");
+            if (username != null) {
+                criteria.andEqualTo("username", username.toString());
             }
         }
         example.setOrderByClause("id asc");
