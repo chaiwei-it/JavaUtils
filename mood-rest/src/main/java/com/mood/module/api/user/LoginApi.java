@@ -54,6 +54,7 @@ public class LoginApi extends BaseController {
         //验证用户是否存在
         User user = userService.selectByUsername(username);
         if(user == null){
+            cacheService.set(UserContants.LOGINNUMBER + username, loginNumber++, 15000);
             return setModelMap(modelMap,HttpCode.LOGIN_NEVER_USER);
         }
         //判断用户是否停用
@@ -63,9 +64,11 @@ public class LoginApi extends BaseController {
         //验证密码是否正确
         Boolean isValidate = Digests.validPassword(password, user.getPassword());
         if(!isValidate){
-            return setModelMap(modelMap,HttpCode.LOGIN_ERROR);
+            cacheService.set(UserContants.LOGINNUMBER + username, loginNumber + 1 + "", 15000);
+            Integer a = cacheService.getInteger(UserContants.LOGINNUMBER + username);
+            return setModelMap(modelMap, HttpCode.LOGIN_ERROR, loginNumber);
         }
-        cacheService.set(UserContants.LOGINNUMBER + username, "1", 1000000);
+        cacheService.set(UserContants.LOGINSTATUS + username, "1", 1000000);
         return setModelMap(modelMap, HttpCode.SUCCESS);
 
     }
