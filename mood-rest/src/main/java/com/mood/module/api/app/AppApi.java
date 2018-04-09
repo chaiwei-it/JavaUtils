@@ -15,15 +15,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/{version}/app")
 public class AppApi extends BaseApi<App> {
 
-//    @Autowired
-//    private AppService appService;
-
-//    @GetMapping("")
-//    public App getApps(){
-//        JSONObject param = new JSONObject();
-//        param.put("name","test");
-//        App app = appService.selectById("6e640e63ef5e4c2c93f81da6a7f87bf9");
-//        return app;
-//    }
-
 }

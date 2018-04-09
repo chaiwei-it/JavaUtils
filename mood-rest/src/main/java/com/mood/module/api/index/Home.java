@@ -15,10 +15,4 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/")
 public class Home {
 
-    @RequestMapping("index")
-    public String getApps(HttpServletRequest request){
-
-        return "/page/index/index";
-    }
-
 }

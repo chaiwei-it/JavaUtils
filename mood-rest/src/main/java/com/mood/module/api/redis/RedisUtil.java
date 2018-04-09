@@ -1,4 +1,4 @@
-package com.mood.module.api.user;
+package com.mood.module.api.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
