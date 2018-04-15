@@ -69,7 +69,7 @@ public class LoginApi extends BaseController {
             return setModelMap(modelMap, HttpCode.LOGIN_ERROR, loginNumber);
         }
         cacheService.set(UserContants.LOGINSTATUS + username, "1", 1000000);
-        return setModelMap(modelMap, HttpCode.SUCCESS);
+        return setModelMap(modelMap, HttpCode.SUCCESS, user);
 
     }
 
